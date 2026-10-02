@@ -1,26 +1,15 @@
-package com.example.exerciselog.domain;
+package com.example.exerciselog.dto;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
-public class ExerciseLog {
+public class ExerciseLogRegisterRequest {
 
-    private Long id;
     private String exerciseName;
     private LocalDate exerciseDate;
     private Integer durationMinutes;
     private Double weight;
     private Integer reps;
     private Integer sets;
-    private LocalDateTime createdAt;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getExerciseName() {
         return exerciseName;
@@ -68,13 +57,5 @@ public class ExerciseLog {
 
     public void setSets(Integer sets) {
         this.sets = sets;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 }

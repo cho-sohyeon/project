@@ -8,9 +8,35 @@
             exercise_name,
             exercise_date,
             duration_minutes,
+            weight,
+            reps,
+            sets,
             created_at
         FROM exercise_log
         ORDER BY exercise_date DESC, id DESC
     </select>
+
+    <insert id="insert" parameterType="com.example.exerciselog.domain.ExerciseLog">
+        <selectKey keyProperty="id" resultType="java.lang.Long" order="BEFORE">
+            SELECT exercise_log_seq.NEXTVAL FROM dual
+        </selectKey>
+        INSERT INTO exercise_log (
+            id,
+            exercise_name,
+            exercise_date,
+            duration_minutes,
+            weight,
+            reps,
+            sets
+        ) VALUES (
+            #{id},
+            #{exerciseName},
+            #{exerciseDate},
+            #{durationMinutes,jdbcType=INTEGER},
+            #{weight},
+            #{reps},
+            #{sets}
+        )
+    </insert>
 
 </mapper>

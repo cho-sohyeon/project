@@ -9,4 +9,6 @@ import java.util.List;
 public interface ExerciseLogMapper {
 
     List<ExerciseLog> findAll();
+
+    void insert(ExerciseLog exerciseLog);
 }

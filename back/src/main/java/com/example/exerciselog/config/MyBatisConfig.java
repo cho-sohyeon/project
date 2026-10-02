@@ -23,6 +23,11 @@ public class MyBatisConfig {
         factoryBean.setDataSource(dataSource);
         factoryBean.setMapperLocations(
                 new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*.xml"));
+
+        org.apache.ibatis.session.Configuration mybatisConfiguration = new org.apache.ibatis.session.Configuration();
+        mybatisConfiguration.setMapUnderscoreToCamelCase(true);
+        factoryBean.setConfiguration(mybatisConfiguration);
+
         return factoryBean.getObject();
     }
 
